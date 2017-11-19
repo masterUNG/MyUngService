@@ -7,7 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -42,8 +45,41 @@ public class SecondFragment extends Fragment{
 //        Show Rate
         showRate();
 
+//        Exchange Controller
+        exchangeController();
+
 
     }   // Main Method
+
+    private void exchangeController() {
+
+        Button button = getView().findViewById(R.id.btnExchange);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                EditText editText = getView().findViewById(R.id.edtUSD);
+                usdString = editText.getText().toString().trim();
+
+                if (usdString.isEmpty()) {
+//                    Have Space
+                    Toast.makeText(getActivity(), "Please Fill Thai Bath",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+//                    No Space
+                    double usdAdouble = Double.parseDouble(usdString);
+                    double answerAdouble = usdAdouble * rateADouble;
+
+                    TextView textView = getView().findViewById(R.id.txtAnswer);
+                    textView.setText(Double.toString(answerAdouble) + " THB");
+
+                }
+
+            }
+        });
+
+
+    }
 
     private void showRate() {
         TextView textView = getView().findViewById(R.id.txtShowRate);
