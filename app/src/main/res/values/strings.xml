@@ -3,5 +3,8 @@
     <string name="app_name">My Ung Srvice</string>
 
     <string name="title_thai">แลกเปลี่ยนเงิน</string>
+    <string name="date">Date = </string>
+    <string name="rate">Rate = </string>
+    <string name="answer">Answer</string>
 
 </resources>
