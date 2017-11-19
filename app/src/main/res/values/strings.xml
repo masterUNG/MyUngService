@@ -7,4 +7,7 @@
     <string name="rate">Rate = </string>
     <string name="answer">Answer</string>
 
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 </resources>
