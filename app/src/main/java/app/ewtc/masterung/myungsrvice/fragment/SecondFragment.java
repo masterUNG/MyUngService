@@ -39,8 +39,31 @@ public class SecondFragment extends Fragment{
 //        Show Date
         showDate();
 
+//        Show Rate
+        showRate();
+
 
     }   // Main Method
+
+    private void showRate() {
+        TextView textView = getView().findViewById(R.id.txtShowRate);
+
+        try {
+
+            JSONArray jsonArray = new JSONArray(jsonRateString);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            rateADouble = jsonObject.getDouble("THB");
+            Log.d("19novV1", "rateAdou ==> " + rateADouble);
+
+            textView.setText(getString(R.string.rate) + Double.toString(rateADouble));
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     private void showDate() {
         TextView textView = getView().findViewById(R.id.txtShowDate);
